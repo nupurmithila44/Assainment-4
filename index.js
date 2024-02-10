@@ -11,26 +11,51 @@
 //     const result = totalticketSale - expenseTaka;
 //      return result;
 //     }
-//     console.log(calculateMoney(1055))
+//     console.log(calculateMoney(-130))
 
 
 
 
 // function checkName(name) {
-   
-//     for(const item of name){
-//     let nameEnd = "A, y, i , e , o , u, w"
-//     if(nameEnd.includes(item)=== true){
-//         return "good name"
+//  if(typeof name ==="string") {
+//    const lastlatter = name[name.length-1].toLowerCase();
+//    if(lastlatter === "a"|| 
+//      lastlatter === "y"||
+//      lastlatter === "i"||
+//      lastlatter === "e"||
+//      lastlatter === "o"|| 
+//      lastlatter === "u"|| 
+//      lastlatter === "w" )
+//      {
+//       return "Good Name"
 //     }
-//     else if(nameEnd.includes(item)=== false){
-//         return "Bad Name"
+//     else {
+//       return 'Bad Name'
 //     }
-   
-//     }
-
+//  }else{
+//    return "invalid"
+//  }
 // }
-// console.log(checkName("RAFEE"));
+
+
+
+//  function deleteInvalids(array) {
+//    if(!Array.isArray(array)) {
+//       return "Invalid Array"
+//    } else{
+//       const filterarray = [];
+//       for(let i = 0; i < array.length; i++){
+//         const elements = array[i];
+//         if (typeof elements === "number" && ! isNaN(elements)){
+//          filterarray . push (elements);
+//         } 
+//    }
+//    return filterarray ;
+//    }
+// }
+
+
+
 
 
 // function password(obj) {
@@ -38,22 +63,41 @@
 //         return "invalid"
 //     }
 //     else if ( obj.birthYear <= 200){
-//         return "invalid u"
+//         return "invalid"
 //     }
 //    return ` ${obj.siteName}#${obj.name}@${obj.birthYear}`;
 //     }
 
 
- function deleteInvalids(array) {
-       for(const item of array){
-        let allDelInvalids = array.filter(item);
-        if(typeof item ==="number" && ! isNaN(item)){
-           return allDelInvalids;
-        }
-    }
-   
-   
-    }
-    console.log(deleteInvalids([1 , null, undefined, 18, -19, NaN, "12", [1, 2], { ob: "lala" }]))
+
+function monthlySavings(arr, livingCost) {
+   if (Array.isArray(arr) === true && typeof livingCost === "number") {
+      let totalearn = 0;
+      for (const payment of arr) {
+         if (payment >= 3000) {
+            const tax = payment * 20 / 100;
+            const earningtax = payment - tax;
+            totalearn += earningtax;
+         }else {
+            totalearn += payment;
+         }
+      }
+      const saveings = totalearn - livingCost;
+      // return saveings;
+      if (saveings >= 0) {
+         return saveings
+      }else {
+         return "earn more";
+      }
+   }
+   else {
+      return "invalid input"
+   }
+
+}
+
+
+
+
 
 
